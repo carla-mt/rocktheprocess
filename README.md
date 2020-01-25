@@ -42,7 +42,6 @@ game.start();
 ````
 __Game.js__
 ````
-function Game(options){};
 Game.drawBoard();
 Game.drawPlayer();
 Game.generateObstacles();
@@ -60,6 +59,9 @@ class Game {
     }
 }
 
+````
+__Player.js__
+````
 class Player {
     constructor({position = x,y}, size, direction, gravity){
         this.position = position;
@@ -68,6 +70,16 @@ class Player {
         this.gravity = gravity;
     }
 }
+ player(){
+    this.position;
+    this.size;
+    this.direction;
+    this.gravity;
+}
+jump();
+````
+__Enemy.js__
+````
 
 class Enemy{
     constructor({position = x,y},size{height, size}){
@@ -75,22 +87,7 @@ class Enemy{
         this.size = width, height;
     }
 }
-
-````
-__Player.js__
-````
-function Player(){
-    this.position;
-    this.size;
-    this.direction;
-    this.gravity;
-
-};
-Player.jump();
-````
-__Enemy.js__
-````
-function Enemy(){
+enemy(){
     this.position;
     this.size;
 };
