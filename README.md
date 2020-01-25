@@ -98,8 +98,7 @@ function Obstacle(){
 moveForward();
 ````
 ## Links
-[Rocktheprocess] Trello]https://trello.com/b/drrd36KI/carla-m-game
-[Github]
-https://github.com/carla-mt/rocktheprocess
-https://carla-mt.github.io/rocktheprocess/.
-[Slides] https://docs.google.com/presentation/d/1Ftld9WGu4EzrBYb5pPC6rM6HGoRI2SuAi6o3SDxnHx4/edit?usp=sharing
+[RocktheprocessTrello] (https://trello.com/b/drrd36KI/carla-m-game)
+[Github] (https://github.com/carla-mt/rocktheprocess) 
+[GitHubPages] (https://carla-mt.github.io/rocktheprocess/.)
+[Slides] (https://docs.google.com/presentation/d/1Ftld9WGu4EzrBYb5pPC6rM6HGoRI2SuAi6o3SDxnHx4/edit?usp=sharing)
