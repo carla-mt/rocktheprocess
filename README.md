@@ -61,20 +61,18 @@ class Game {
 }
 
 class Player {
-    constructor({position = x,y}, direction, gravity){
+    constructor({position = x,y}, size, direction, gravity){
         this.position = position;
-        this canvas = ctx;
-        this.speed = speed;
         this.size = width, height;
+        this.direction = direction;
+        this.gravity = gravity;
     }
 }
 
 class Enemy{
-    constructor({position = x,y}, width, height,size){
+    constructor({position = x,y},size{height, size}){
         this position = position;
-        this.width = width;
-        this.height = height;
-        this.size = size;
+        this.size = width, height;
     }
 }
 
@@ -82,20 +80,22 @@ class Enemy{
 __Player.js__
 ````
 function Player(){
-  this.width;
-  this.height;
-  this.gravity;
+    this.position;
+    this.size;
+    this.direction;
+    this.gravity;
 
 };
 Player.jump();
 ````
 __Enemy.js__
 ````
-function Obstacle(){
-  this.width;
-  this.height;
+function Enemy(){
+    this.position;
+    this.size;
 };
 moveForward();
+moveFaster();
 ````
 ## Links
 [RocktheprocessTrello] (https://trello.com/b/drrd36KI/carla-m-game)
