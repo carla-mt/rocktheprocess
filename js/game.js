@@ -1,13 +1,14 @@
 
 //This is mine
 class Game {
-    constructor(ctx){
+    constructor(ctx, player) {
       this.ctx = ctx;
+      this.player = player;
     } 
 
     drawPlayer() {
-      this.ctx.fillStyle = 'blue';
-      this.ctx.fillRect(300,350,70,150);
+      this.ctx.fillStyle = this.player.color;
+      this.ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);
     }
 
     drawPath() {
@@ -17,37 +18,27 @@ class Game {
       this.ctx.stroke();
     }
 
+    assignControlsToKeys() {
+      document.addEventListener('keydown', e => {
+        switch (e.keyCode) {
+          case 32:
+            this.cleanBoard();
+            this.player.jumpPlayer();
+            this.drawPath();
+            break;
+        }
+      })
+    }
+
+    cleanBoard() {
+      this.ctx.clearRect(0, 0, 1400, 700);
+    }
+
     start() {
       this.drawPlayer();
       this.drawPath();
+      this.assignControlsToKeys();
     }
+
+
 }
-
-
-//From here should be edited as I took the code from the "snake example"
-
-// _drawBoard
-// function drawBoard() {
-//     this.ctx.fillStyle = "blue";
-//     this.drawBoard.fillStyle = "red";
-//     this.height = 500;
-//     }
-   
-//_drawPlayer() {
-    //this.ctx.fillStyle = "blue";
-    //this.player.forEach(position => {
-      //this.ctx.fillRect(position.x * this.maxCells, position.row * this.maxCells, 8, 8);
-    //});
-  //}
-
-  //_draw() {
-    //this.ctx.fillStyle = "red";
-    //this.ctx.fillRect(this.food.column * 10, this.food.row * 10, 8, 8);
-  //}
-
-  //_assignControlsToKeys() {
-    //document.onkeyup = e => {
-    //document.addEventListener('', e => {
-      //switch (e.keyCode) {
-        //case 38: // arrow up
-          //this.snake.goUp();
