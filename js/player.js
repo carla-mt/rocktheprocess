@@ -8,9 +8,12 @@ class Player {
     }
 
     jumpPlayer() {
-        //this.y = 340;
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y - 80, this.width, this.height);
+        ctx.fillRect(this.x, this.y - 100, this.width, this.height);
+        // this.setTimeout(() => {
+        //     return (this.y, 2*1000);
+        // }
+
     }
 
 }

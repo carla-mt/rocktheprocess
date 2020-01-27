@@ -1,9 +1,10 @@
 
 //This is mine
 class Game {
-    constructor(ctx, player) {
+    constructor(ctx, player, enemy) {
       this.ctx = ctx;
       this.player = player;
+      this.enemy = enemy;
     } 
 
     drawPlayer() {
@@ -25,6 +26,7 @@ class Game {
             this.cleanBoard();
             this.player.jumpPlayer();
             this.drawPath();
+            this.drawEnemy();
             break;
         }
       })
@@ -34,10 +36,16 @@ class Game {
       this.ctx.clearRect(0, 0, 1400, 700);
     }
 
+    drawEnemy() {
+      this.ctx.fillStyle = this.enemy.color;
+      this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
+    }
+    
     start() {
       this.drawPlayer();
       this.drawPath();
       this.assignControlsToKeys();
+      this.drawEnemy();
     }
 
 
