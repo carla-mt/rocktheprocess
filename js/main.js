@@ -1,6 +1,13 @@
-let canvas = document.getElementById('player')
+let ctx;
+let game;
+
+document.addEventListener('DOMContentLoaded', (event)=> {
+  let canvas = document.getElementById('rocktheprocess');
+  let startBtn = document.getElementById('start');
   ctx = canvas.getContext('2d');
 
+  game = new Game(ctx); 
 
-  
+  game.start();
+})
  

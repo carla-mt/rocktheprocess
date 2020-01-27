@@ -1,25 +1,29 @@
 
 //This is mine
 class Game {
-    constructor(canvas, enemy, player, width, height, speed){
-      this.canvas = ctx;
-      this.enemy = enemy;
-      this.player = player;
-      this.width = width;
-      this.height = height;
-      this.speed = speed;
+    constructor(ctx){
+      this.ctx = ctx;
+    } 
+
+    drawPlayer() {
+      this.ctx.fillStyle = 'blue';
+      this.ctx.fillRect(300,350,70,150);
+    }
+
+    start() {
+      this.drawPlayer();
     }
 }
 
+
 //From here should be edited as I took the code from the "snake example"
 
-_drawBoard
-function drawBoard(width, height) {
-    this.canvas = ctx
-    this.width = width;
-    this.height = height;
-
-    }
+// _drawBoard
+// function drawBoard() {
+//     this.ctx.fillStyle = "blue";
+//     this.drawBoard.fillStyle = "red";
+//     this.height = 500;
+//     }
    
 //_drawPlayer() {
     //this.ctx.fillStyle = "blue";
