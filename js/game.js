@@ -10,8 +10,16 @@ class Game {
       this.ctx.fillRect(300,350,70,150);
     }
 
+    drawPath() {
+      this.ctx.beginPath();
+      this.ctx.moveTo(0,500);
+      this.ctx.lineTo(1400,500);
+      this.ctx.stroke();
+    }
+
     start() {
       this.drawPlayer();
+      this.drawPath();
     }
 }
 
