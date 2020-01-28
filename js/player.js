@@ -7,18 +7,17 @@ class Player {
         this.color = "blue";
     }
 
-    // let gravity = 350
-    // let playerFall = function(){}
-
-    // for (let i = gravity; i > 0; i--)) {
-    //     if (placeFree(player.x, player.y + i) {
-    //        player.y += i;
-    //        break;
-    //     }
-    //  }
-
+    desjumpPlayer (){
+        if (this.y >= 350) {
+            this.y = 350
+        } else {
+            this.y = this.y + 2;
+        }
+     }
+   
     jumpPlayer() {
-        this.y = this.y - 150;
-        // if (this.y < 350)
+        this.y = this.y - 180;
     } 
 }
+
+// if (this.y < 350)

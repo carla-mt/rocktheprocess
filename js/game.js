@@ -12,8 +12,9 @@ class Game {
       this.cleanBoard();
       this.drawPath();
       this.drawPlayer();
+      this.player.desjumpPlayer();
       this.drawEnemy();
-      this.enemy.move ();
+      this.enemy.move();
       if (!!this.interval) {
         this.interval = window.requestAnimationFrame(this.update.bind(this));
       }
