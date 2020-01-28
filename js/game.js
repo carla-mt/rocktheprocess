@@ -5,7 +5,19 @@ class Game {
       this.ctx = ctx;
       this.player = player;
       this.enemy = enemy;
+      this.interval = undefined;
     } 
+
+    update() {
+      this.cleanBoard();
+      this.drawPath();
+      this.drawPlayer();
+      this.drawEnemy();
+      this.enemy.move ();
+      if (!!this.interval) {
+        this.interval = window.requestAnimationFrame(this.update.bind(this));
+      }
+    }
 
     drawPlayer() {
       this.ctx.fillStyle = this.player.color;
@@ -46,6 +58,7 @@ class Game {
       this.drawPath();
       this.assignControlsToKeys();
       this.drawEnemy();
+      this.interval = window.requestAnimationFrame(this.update.bind(this));
     }
 
 
