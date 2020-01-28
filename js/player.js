@@ -7,13 +7,18 @@ class Player {
         this.color = "blue";
     }
 
+    // let gravity = 350
+    // let playerFall = function(){}
+
+    // for (let i = gravity; i > 0; i--)) {
+    //     if (placeFree(player.x, player.y + i) {
+    //        player.y += i;
+    //        break;
+    //     }
+    //  }
+
     jumpPlayer() {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y - 100, this.width, this.height);
-        // this.setTimeout(() => {
-        //     return (this.y, 2*1000);
-        // }
-
-    }
-
+        this.y = this.y - 150;
+        // if (this.y < 350)
+    } 
 }

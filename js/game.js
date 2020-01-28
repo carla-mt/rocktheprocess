@@ -32,11 +32,11 @@ class Game {
     }
 
     assignControlsToKeys() {
-      document.addEventListener('keydown', e => {
+      document.addEventListener('keyup', e => {
         switch (e.keyCode) {
           case 32:
-            this.cleanBoard();
             this.player.jumpPlayer();
+            this.cleanBoard();
             this.drawPath();
             this.drawEnemy();
             break;
