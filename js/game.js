@@ -5,6 +5,7 @@ class Game {
       this.ctx = ctx;
       this.player = player;
       this.enemy = enemy;
+      this.enemies = [];
       this.interval = undefined;
     } 
 
@@ -14,6 +15,7 @@ class Game {
       this.drawPlayer();
       this.player.desjumpPlayer();
       this.drawEnemy();
+      this.generateEnemies();
       this.enemy.move();
       if (!!this.interval) {
         this.interval = window.requestAnimationFrame(this.update.bind(this));
@@ -53,6 +55,23 @@ class Game {
       this.ctx.fillStyle = this.enemy.color;
       this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
     }
+
+    generateEnemies(){
+      setInterval(() => {
+        this.drawEnemy();
+        console.log("funciona");
+      }, 1000);
+      // for (let i = 0; i < 100; i++){
+      //   this.enemies.push(new Enemy());
+      // }
+      // console.log(this.enemies);
+    //   this = {
+    //     row: Math.floor(Math.random() * this.x),
+    //     column: Math.floor(Math.random() * this.y);
+    //   } 
+    //   this.intervalId = setInterval(this.drawEnemy.bind(this), 100);
+    
+  }
     
     start() {
       this.drawPlayer();
