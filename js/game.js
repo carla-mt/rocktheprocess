@@ -7,15 +7,17 @@ class Game {
       this.enemy = enemy;
       this.enemies = [];
       this.interval = undefined;
+      this.frames = 0;
     } 
 
     update() {
+      this.frames += 1;
       this.cleanBoard();
       this.drawPath();
       this.drawPlayer();
       this.player.desjumpPlayer();
       this.drawEnemy();
-      this.generateEnemies();
+      this.drawEnemies();
       this.enemy.move();
       if (!!this.interval) {
         this.interval = window.requestAnimationFrame(this.update.bind(this));
@@ -39,9 +41,9 @@ class Game {
         switch (e.keyCode) {
           case 32:
             this.player.jumpPlayer();
-            this.cleanBoard();
-            this.drawPath();
-            this.drawEnemy();
+            // this.cleanBoard();
+            // this.drawPath();
+            // this.drawEnemy();
             break;
         }
       })
@@ -55,16 +57,30 @@ class Game {
       this.ctx.fillStyle = this.enemy.color;
       this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
     }
+    
+    drawEnemies() {
+      this.enemies.forEach(element => {
+        this.ctx.fillStyle = element.color;
+        this.ctx.fillRect(element.x, element.y, element.width, element.height);
+      })
+    }
 
     generateEnemies(){
-      setInterval(() => {
-        this.drawEnemy();
-        console.log("funciona");
-      }, 1000);
-      // for (let i = 0; i < 100; i++){
-      //   this.enemies.push(new Enemy());
+      for (let i = 0; i < 100; i++){
+        this.enemies.push(new Enemy());
+      }
+
+      // if(this.frames % 60 === 0){
+      //   this.drawEnemy();
+      //   this.enemy.move();
+      //   console.log("funciona");
       // }
-      // console.log(this.enemies);
+      // setInterval(() => {
+      //   this.drawEnemy();{}
+      //   console.log("funciona");
+      // }, 1000);
+    
+       console.log(this.enemies);
     //   this = {
     //     row: Math.floor(Math.random() * this.x),
     //     column: Math.floor(Math.random() * this.y);
@@ -76,8 +92,9 @@ class Game {
     start() {
       this.drawPlayer();
       this.drawPath();
+      this.generateEnemies();
       this.assignControlsToKeys();
-      this.drawEnemy();
+      //this.drawEnemy();
       this.interval = window.requestAnimationFrame(this.update.bind(this));
     }
 
