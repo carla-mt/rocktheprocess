@@ -11,12 +11,13 @@ class Game {
     } 
 
     update() {
-      this.frames += 1;
+      //this.frames += 1;
       this.cleanBoard();
       this.drawPath();
       this.drawPlayer();
       this.player.desjumpPlayer();
       this.drawEnemy();
+      //this.generateEnemies();
       this.drawEnemies();
       this.enemy.move();
       if (!!this.interval) {
@@ -60,14 +61,13 @@ class Game {
     
     drawEnemies() {
       this.enemies.forEach(element => {
-        this.ctx.fillStyle = element.color;
+        this.ctx.fillStyle = "red";
         this.ctx.fillRect(element.x, element.y, element.width, element.height);
-      })
-    }
-
-    generateEnemies(){
+    })
+ }
+    generateEnemies() {
       for (let i = 0; i < 100; i++){
-        this.enemies.push(new Enemy());
+        this.enemies.push(new Enemy(i * 10));
       }
 
       // if(this.frames % 60 === 0){

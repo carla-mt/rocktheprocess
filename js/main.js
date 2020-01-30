@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event)=> {
   let startBtn = document.getElementById('start');
   ctx = canvas.getContext('2d');
 
-  game = new Game(ctx, new Player(), new Enemy()); 
+  game = new Game(ctx, new Player(), new Enemy(0)); 
 
   game.start();
 })

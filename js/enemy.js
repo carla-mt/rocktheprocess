@@ -1,6 +1,6 @@
 class Enemy {
-    constructor() {
-        this.x = 1400;
+    constructor(x) {
+        this.x = x + 1400;
         this.y = 430;
         this.width = 40;
         this.height = 70;
