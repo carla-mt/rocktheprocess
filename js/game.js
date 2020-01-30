@@ -16,11 +16,10 @@ class Game {
     this.drawPath();
     this.drawPlayer();
     this.player.desjumpPlayer();
-    this.drawEnemy();
+    // this.drawEnemy();
     //this.generateEnemies();
     this.drawEnemies();
-    this.enemy.move();
-
+    // this.enemy.move();
     if (!!this.interval) {
       this.interval = window.requestAnimationFrame(this.update.bind(this));
     }
@@ -64,14 +63,14 @@ class Game {
     this.enemies.forEach(element => {
       this.ctx.fillStyle = "red";
       this.ctx.fillRect(element.x, element.y, element.width, element.height);
+      element.move()
     })
   }
 
 
   generateEnemies() {
     for (let i = 0; i < 100; i++) {
-      this.enemies.push(new Enemy(i * 10));
-      this.enemies[i].move()
+      this.enemies.push(new Enemy(i * 1000));
     }
 
     // if(this.frames % 60 === 0){
