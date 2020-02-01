@@ -7,11 +7,10 @@ class Game {
     this.enemy = enemy;
     this.enemies = [];
     this.interval = undefined;
-    this.frames = 0;
+    //this.gameOver = callback
   }
 
   update() {
-    //this.frames += 1;
     this.cleanBoard();
     this.drawPath();
     this.drawPlayer();
@@ -67,39 +66,36 @@ class Game {
     })
   }
 
-
   generateEnemies() {
     for (let i = 0; i < 100; i++) {
-      this.enemies.push(new Enemy(i * 1000));
+      this.enemies.push(new Enemy(i * 400));
     }
-
-    // if(this.frames % 60 === 0){
-    //   this.drawEnemy();
-    //   this.enemy.move();
-    //   console.log("funciona");
-    // }
-    // setInterval(() => {
-    //   this.drawEnemy();{}
-    //   console.log("funciona");
-    // }, 1000);
-
-    console.log(this.enemies);
-    //   this = {
-    //     row: Math.floor(Math.random() * this.x),
-    //     column: Math.floor(Math.random() * this.y);
-    //   } 
-    //   this.intervalId = setInterval(this.drawEnemy.bind(this), 100);
-
   }
+
+
+  collidesWith() {
+    if (this.player.x < this.enemies.x + this.enemies.width &&
+      this.player.x + this.player.width > this.enemies.x &&
+      this.player.y < this.enemies.y + this.enemies.height &&
+      this.player.height + this.player.y > this.enemies.y) {
+    } console.log("funciona");
+  }
+
+
+  // gameOver() {
+  //   if (this.collidesWith) {
+  //     console.log("game over");
+  //   }
+  // }
 
   start() {
     this.drawPlayer();
     this.drawPath();
     this.generateEnemies();
+    this.collidesWith();
+    //this.gameOver();
     this.assignControlsToKeys();
-    //this.drawEnemy();
     this.interval = window.requestAnimationFrame(this.update.bind(this));
   }
-
 
 }

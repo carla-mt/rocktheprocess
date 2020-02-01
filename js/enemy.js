@@ -7,8 +7,7 @@ class Enemy {
         this.color = "red";
     }
 
-    move (){
-        this.x = this.x -3;
+    move() {
+        this.x = this.x - 3;
     }
 }
-    
