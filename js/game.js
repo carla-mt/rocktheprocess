@@ -1,5 +1,4 @@
 
-//This is mine
 class Game {
   constructor(ctx, player, enemy, callback) {
     this.ctx = ctx;
@@ -15,11 +14,7 @@ class Game {
     this.drawPath();
     this.drawPlayer();
     this.player.desjumpPlayer();
-    // this.drawEnemy();
-    //this.generateEnemies();
-    //this.collidesWith();
     this.drawEnemies();
-    // this.enemy.move();
     if (!!this.interval) {
       this.interval = window.requestAnimationFrame(this.update.bind(this));
     }
@@ -42,9 +37,6 @@ class Game {
       switch (e.keyCode) {
         case 32:
           this.player.jumpPlayer();
-          // this.cleanBoard();
-          // this.drawPath();
-          // this.drawEnemy();
           break;
       }
     })
