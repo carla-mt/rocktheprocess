@@ -1,13 +1,13 @@
 
 //This is mine
 class Game {
-  constructor(ctx, player, enemy) {
+  constructor(ctx, player, enemy, callback) {
     this.ctx = ctx;
     this.player = player;
     this.enemy = enemy;
     this.enemies = [];
     this.interval = undefined;
-    //this.gameOver = callback
+    this.gameOver = callback
   }
 
   update() {
@@ -17,6 +17,7 @@ class Game {
     this.player.desjumpPlayer();
     // this.drawEnemy();
     //this.generateEnemies();
+    //this.collidesWith();
     this.drawEnemies();
     // this.enemy.move();
     if (!!this.interval) {
@@ -62,7 +63,8 @@ class Game {
     this.enemies.forEach(element => {
       this.ctx.fillStyle = "red";
       this.ctx.fillRect(element.x, element.y, element.width, element.height);
-      element.move()
+      element.move();
+      this.collidesWith(element);
     })
   }
 
@@ -72,28 +74,26 @@ class Game {
     }
   }
 
-
-  collidesWith() {
-    if (this.player.x < this.enemies.x + this.enemies.width &&
-      this.player.x + this.player.width > this.enemies.x &&
-      this.player.y < this.enemies.y + this.enemies.height &&
-      this.player.height + this.player.y > this.enemies.y) {
-    } console.log("funciona");
+  collidesWith(enemy) {
+    if (this.player.x < enemy.x + enemy.width &&
+      this.player.x + this.player.width > enemy.x &&
+      this.player.y < enemy.y + enemy.height &&
+      this.player.height + this.player.y > enemy.y) {
+      this.gameOver();
+    }
   }
 
+  gameOver() {
+    if (this.collidesWith) {
+      printGameOver();
+    };
+  }
 
-  // gameOver() {
-  //   if (this.collidesWith) {
-  //     console.log("game over");
-  //   }
-  // }
 
   start() {
     this.drawPlayer();
     this.drawPath();
     this.generateEnemies();
-    this.collidesWith();
-    //this.gameOver();
     this.assignControlsToKeys();
     this.interval = window.requestAnimationFrame(this.update.bind(this));
   }

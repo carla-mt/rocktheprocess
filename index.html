@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,14 @@
   <link rel="stylesheet" href="./css/main.css">
   <title>Rocktheprocess</title>
 </head>
-<body>
 
-  <div class="container">
+<body>
+  <div id="startscreen" style="display: block">
+    ROCK THE PROCESS
+    <button id='start'>START</button>
+  </div>
+  <div id="container" style="display: none">
     <canvas id="rocktheprocess" width="1400" height="700"></canvas>
-    <button id="start">Start</button>
   </div>
   <div id="gameover" style="display: none">
     Game Over
@@ -20,7 +24,7 @@
   <script src="js/game.js"></script>
   <script src="js/player.js"></script>
   <script src="js/enemy.js"></script>
-  
-</body>
-</html>
 
+</body>
+
+</html>
