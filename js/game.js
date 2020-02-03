@@ -6,7 +6,9 @@ class Game {
     this.enemy = enemy;
     this.enemies = [];
     this.interval = undefined;
+    this.paused = false;
     this.gameOver = callback
+
   }
 
   update() {
@@ -37,6 +39,9 @@ class Game {
       switch (e.keyCode) {
         case 32:
           this.player.jumpPlayer();
+          break;
+        case 80:
+          this.pause();
           break;
       }
     })
@@ -72,6 +77,15 @@ class Game {
       this.player.y < enemy.y + enemy.height &&
       this.player.height + this.player.y > enemy.y) {
       this.gameOver();
+    }
+  }
+
+  pause() {
+    this.paused = !this.paused;
+    if (this.paused) {
+      window.cancelAnimationFrame(this.interval);
+    } else {
+      this.interval = window.requestAnimationFrame(this.update.bind(this));
     }
   }
 
