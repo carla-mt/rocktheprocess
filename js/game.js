@@ -1,6 +1,6 @@
 
 class Game {
-  constructor(ctx, player, enemy, bonus, callback, playerImage, floorImage) {
+  constructor(ctx, player, enemy, bonus, callback, playerImage, floorImage, enemyImage) {
     this.ctx = ctx;
     this.player = player;
     this.enemy = enemy;
@@ -12,6 +12,7 @@ class Game {
     this.gameOver = callback;
     this.playerImage = playerImage;
     this.floorImage = floorImage;
+    this.enemyImage = enemyImage;
   }
 
   update() {
@@ -57,23 +58,25 @@ class Game {
     this.ctx.clearRect(0, 0, 1400, 700);
   }
 
-  drawEnemy() {
-    this.ctx.fillStyle = this.enemy.color;
-    this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
-  }
+  //drawEnemy() {
+  // this.ctx.fillStyle = this.enemy.color;
+  // this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
+  //this.ctx.drawImage(this.enemyImage, this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height)
+  //}
 
   drawEnemies() {
     this.enemies.forEach(element => {
-      this.ctx.fillStyle = "red";
-      this.ctx.fillRect(element.x, element.y, element.width, element.height);
+      // this.ctx.fillStyle = "red";
+      // this.ctx.fillRect(element.x, element.y, element.width, element.height);
+      this.ctx.drawImage(this.enemyImage, element.x, element.y, element.width, element.height)
       element.move();
       this.collidesWith(element);
     })
   }
 
   generateEnemies() {
-    for (let i = 0; i < 100; i++) {
-      this.enemies.push(new Enemy(i * 400));
+    for (let i = 0; i < 50; i++) {
+      this.enemies.push(new Enemy(i * 700));
     }
   }
 
