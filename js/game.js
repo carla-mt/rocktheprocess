@@ -9,10 +9,12 @@ class Game {
     this.enemies = [];
     this.interval = undefined;
     this.paused = false;
-    this.gameOver = callback;
+    this.printGameOver = callback;
     this.playerImage = playerImage;
     this.floorImage = floorImage;
     this.enemyImage = enemyImage;
+    this.timer = 0;
+    this.intervalId = null;
   }
 
   update() {
@@ -94,6 +96,8 @@ class Game {
     this.ctx.fillRect(this.bonus.x, this.bonus.y, this.bonus.width, this.bonus.height);
   }
 
+
+
   drawBonuses() {
     this.bonuses.forEach(element => {
       this.ctx.fillStyle = "green";
@@ -136,12 +140,24 @@ class Game {
 
   gameOver() {
     if (this.collidesWith) {
-      printGameOver();
+      this.printGameOver(this.timer);
+      this.clearTimer();
     };
   }
 
+  startTimer() {
 
+    const callback = () => {
+      this.timer = this.timer + 1
+      console.log("funciona", this.timer);
+    }
 
+    this.intervalId = window.setInterval(callback, 1000)
+  }
+
+  clearTimer() {
+    window.clearInterval(this.intervalId);
+  }
 
   start() {
     this.drawPlayer();
@@ -149,6 +165,7 @@ class Game {
     this.generateEnemies();
     this.generateBonuses();
     this.assignControlsToKeys();
+    this.startTimer();
     this.interval = window.requestAnimationFrame(this.update.bind(this));
   }
 
