@@ -2,8 +2,8 @@ class Player {
     constructor() {
         this.x = 300;
         this.y = 420;
-        this.width = 70;
-        this.height = 130;
+        this.width = 140;
+        this.height = 170;
         this.color = "blue";
     }
 

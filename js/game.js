@@ -1,6 +1,6 @@
 
 class Game {
-  constructor(ctx, player, enemy, bonus, callback) {
+  constructor(ctx, player, enemy, bonus, callback, playerImage, floorImage) {
     this.ctx = ctx;
     this.player = player;
     this.enemy = enemy;
@@ -9,9 +9,9 @@ class Game {
     this.enemies = [];
     this.interval = undefined;
     this.paused = false;
-    this.gameOver = callback
-
-
+    this.gameOver = callback;
+    this.playerImage = playerImage;
+    this.floorImage = floorImage;
   }
 
   update() {
@@ -27,16 +27,17 @@ class Game {
   }
 
   drawPlayer() {
-    this.ctx.fillStyle = this.player.color;
-    this.ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);
-
+    // this.ctx.fillStyle = this.player.color;
+    // this.ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);
+    this.ctx.drawImage(this.playerImage, this.player.x, this.player.y, this.player.width, this.player.height);
   }
 
   drawPath() {
-    this.ctx.beginPath();
-    this.ctx.moveTo(0, 550);
-    this.ctx.lineTo(1400, 550);
-    this.ctx.stroke();
+    // this.ctx.beginPath();
+    // this.ctx.moveTo(0, 550);
+    // this.ctx.lineTo(1400, 550);
+    // this.ctx.stroke();
+    this.ctx.drawImage(this.floorImage, 0, 550, 1400, 550);
   }
 
   assignControlsToKeys() {

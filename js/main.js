@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let container = document.getElementById('container');
   let startBtn = document.getElementById('start');
   let gameOver = document.getElementById("gameover");
+  let playerImage = document.getElementById("player-image");
+  let floorImage = document.getElementById("floor-image");
   let playAgainBtn = document.getElementById('playagain');
   ctx = canvas.getContext('2d');
   startBtn.addEventListener('click', function () {
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   })
 
 
-  game = new Game(ctx, new Player(), new Enemy(0), new Bonus(0), printGameOver);
+  game = new Game(ctx, new Player(), new Enemy(0), new Bonus(0), printGameOver, playerImage, floorImage);
 
   function destroyStartScreen() {
     startscreen.style = "display: none";
