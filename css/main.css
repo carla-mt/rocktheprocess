@@ -7,5 +7,71 @@ canvas#rocktheprocess {
     margin: 0 auto;
     border: 1px solid black;
     background-image: url("../image/BG.png");
+    align-content: center;
 }
+
+#startscreen {
+background-color:white;
+margin: 0 auto;
+display: inline;
+align-items: center; 
+
+}
+
+.title {
+font-size: 70px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color:black;
+display: flex;
+align-items: center;
+}
+
+.ironplayer {
+width: 250px;
+height: 300px;
+position: relative;
+}
+
+.floor{
+    width: 2000px;
+    height: 500;
+    position: fixed;
+    display: flex;
+
+}
+
+#start {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: deepskyblue;
+    font-size: 50px;
+}
+
+#start.button {
+    border-color: deepskyblue;
+    border-style: solid;
+    border-width: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.gameoverimg {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+#playagain {
+    font-size: 30px;
+    color: deepskyblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 2o0px;
+    height: 80px;
+    border-color: deepskyblue;
+    border-style: solid;
+    border-width: 5px;
+    display: flex;
+    align-items: center;
+}
+
 
