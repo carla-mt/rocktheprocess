@@ -1,6 +1,6 @@
 
 class Game {
-  constructor(ctx, player, enemy, bonus, callback, playerImage, floorImage, enemyImage) {
+  constructor(ctx, player, enemy, bonus, callback, playerImage, floorImage, enemyImage, linkedinImage) {
     this.ctx = ctx;
     this.player = player;
     this.enemy = enemy;
@@ -13,20 +13,42 @@ class Game {
     this.playerImage = playerImage;
     this.floorImage = floorImage;
     this.enemyImage = enemyImage;
+    this.linkedinImage = linkedinImage;
     this.timer = 0;
     this.intervalId = null;
+    //this.counter = null;
   }
 
   update() {
+    // this.timer = this.timer + (1 / 60);
     this.cleanBoard();
     this.drawPath();
     this.drawPlayer();
     this.player.desjumpPlayer();
     this.drawEnemies();
     this.drawBonuses();
+    this.showScore();
     if (!!this.interval) {
       this.interval = window.requestAnimationFrame(this.update.bind(this));
     }
+  }
+
+  showScore() {
+    document.getElementById('timer').innerHTML = this.timer;
+  }
+
+  showTime() {
+    let timer = document.getElementById("timer");
+    timer.classList.remove('hide');
+    timer.classList.add("up-right");
+  }
+  showFinalScore() {
+    document.getElementById('timer').innerHTML = this.timer;
+  }
+  showFinalTime() {
+    let timer = document.getElementById("timer");
+    timer.classList.remove('hide');
+    timer.classList.add("center");
   }
 
   drawPlayer() {
@@ -100,8 +122,9 @@ class Game {
 
   drawBonuses() {
     this.bonuses.forEach(element => {
-      this.ctx.fillStyle = "green";
-      this.ctx.fillRect(element.x, element.y, element.width, element.height);
+      this.ctx.drawImage(this.linkedinImage, element.x, element.y, element.width, element.height)
+      // this.ctx.fillStyle = "green";
+      // this.ctx.fillRect(element.x, element.y, element.width, element.height);
       element.move();
       this.getBonus(element);
     })
@@ -142,14 +165,15 @@ class Game {
     if (this.collidesWith) {
       this.printGameOver(this.timer);
       this.clearTimer();
+      this.showFinalScore();
+      this.showFinalTime();
     };
   }
 
   startTimer() {
-
     const callback = () => {
       this.timer = this.timer + 1
-      console.log("funciona", this.timer);
+      //console.log("funciona", this.timer);
     }
 
     this.intervalId = window.setInterval(callback, 1000)
@@ -166,6 +190,7 @@ class Game {
     this.generateBonuses();
     this.assignControlsToKeys();
     this.startTimer();
+    this.showTime();
     this.interval = window.requestAnimationFrame(this.update.bind(this));
   }
 

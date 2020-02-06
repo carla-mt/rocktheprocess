@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let playerImage = document.getElementById("player-image");
   let floorImage = document.getElementById("floor-image");
   let enemyImage = document.getElementById("enemy-image");
+  let linkedinImage = document.getElementById("linkedin-image");
   let playAgainBtn = document.getElementById('playagain');
+  //let counter = document.getElementById('counter');
+  //let finalTime = document.getElementById('final-time');
   ctx = canvas.getContext('2d');
   startBtn.addEventListener('click', function () {
     destroyStartScreen();
@@ -20,18 +23,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
   })
 
 
-  game = new Game(ctx, new Player(), new Enemy(0), new Bonus(0), printGameOver, playerImage, floorImage, enemyImage);
+  game = new Game(ctx, new Player(), new Enemy(0), new Bonus(0), printGameOver, playerImage, floorImage, enemyImage, linkedinImage);
+
 
   function destroyStartScreen() {
     startscreen.style = "display: none";
     container.style = "display: block";
   }
 
+
   function printGameOver() {
     canvas.style = "display: none";
     gameOver.style = "display: block";
+
   }
-
 })
-
-

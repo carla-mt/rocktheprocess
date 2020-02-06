@@ -74,4 +74,23 @@ position: relative;
     align-items: center;
 }
 
+#timer {
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 40px;
+}
 
+.up-right {
+    top: 50px;
+    right: 50px;
+}
+
+.center{
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.hide {
+display: none;
+}
