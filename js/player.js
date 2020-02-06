@@ -17,6 +17,7 @@ class Player {
 
     jumpPlayer() {
         this.y = this.y - 370;
+
     }
 }
 

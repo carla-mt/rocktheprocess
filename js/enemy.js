@@ -5,9 +5,10 @@ class Enemy {
         this.width = 120;
         this.height = 120;
         this.color = "red";
+        this.speed = 4;
     }
 
     move() {
-        this.x = this.x - 5;
+        this.x = this.x - 4;
     }
 }

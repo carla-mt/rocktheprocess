@@ -147,7 +147,8 @@ class Game {
 
   increaseSpeed() {
     this.enemies.forEach(element => {
-      element.x = element.x - 7
+      element.x = element.x - 7;
+      //element.speed = element.speed - 5;
     })
   }
 
