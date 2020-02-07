@@ -11,10 +11,14 @@
 
 <body>
   <div id="startscreen" style="display: block">
-    <p class="title">ROCK THE PROCESS</p>
-    <button id='start'>START</button>
-    <img class="ironplayer" src="./image/IronAlien.png">
-    <img class="floor" src="./image/FLOOR.png">
+    <div class="startitems">
+      <p class="title">ROCK THE PROCESS</p>
+      <button id='start'>START</button>
+    </div>
+    <div class="startimg">
+      <img class="ironplayer" src="./image/IronAlien.png">
+      <img class="floor" src="./image/FLOOR.png">
+    </div>
   </div>
   <div id="container" style="display: none">
     <canvas id="rocktheprocess" width="1400" height="700"></canvas>
@@ -26,8 +30,10 @@
     <img id="linkedin-image" src="./image/linkedin contact.png" style="display: none">
   </div>
   <div id="gameover" style="display: none">
-    <img class="gameoverimg" src="./image/game_over.png">
-    <button id='playagain'>PLAY AGAIN</button>
+    <div id="gameover-div">
+      <img class="gameoverimg" src="./image/game_over.png">
+      <button id='playagain'>PLAY AGAIN</button>
+    </div>
   </div>
 
   <script src="js/main.js"></script>

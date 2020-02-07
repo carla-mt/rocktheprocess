@@ -34,7 +34,7 @@ class Game {
   }
 
   showScore() {
-    document.getElementById('timer').innerHTML = this.timer;
+    document.getElementById('timer').innerHTML = `${this.timer} sec`;
   }
 
   showTime() {

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let playerImage = document.getElementById("player-image");
   let floorImage = document.getElementById("floor-image");
   let enemyImage = document.getElementById("enemy-image");
+  //let gameOverImage = document.getElementById("gameoverimg");
   let linkedinImage = document.getElementById("linkedin-image");
   let playAgainBtn = document.getElementById('playagain');
   //let counter = document.getElementById('counter');
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   function printGameOver() {
     canvas.style = "display: none";
     gameOver.style = "display: block";
+    //gameOverImage.style = "display: block";
 
   }
 })
